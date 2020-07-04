@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
         systemctl enable rpcbind
         systemctl start rpcbind
         mkdir -p /mnt/nfs_share
-        sh -c "echo '192.168.0.32:/var/nfs_upload  /mnt/nfs_share  nfs  defaults  0 0' >> /etc/fstab"
+        sh -c "echo '192.168.0.32:/var/nfs_upload  /mnt/nfs_share  nfs  auto,rw,async,user,_netdev  0 0' >> /etc/fstab"
         mount -t nfs 192.168.0.32:/var/nfs_upload /mnt/nfs_share
     SHELL
   end
